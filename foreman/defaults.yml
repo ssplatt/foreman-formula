@@ -1,0 +1,17 @@
+# -*- coding: utf-8 -*-
+# vim: ft=yaml
+# Defaults for foreman
+
+foreman:
+  enabled: False
+  repos_managed: false
+  mockup: false
+  service:
+    name: foreman
+    state: dead
+    enable: false
+  proxy:
+    service:
+      name: foreman-proxy
+      state: dead
+      enable: false

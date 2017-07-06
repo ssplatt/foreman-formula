@@ -1,0 +1,10 @@
+external_auth:
+  pam:
+    saltuser:
+      - '@runner'
+
+rest_cherrypy:
+  port: 9191
+  host: 0.0.0.0
+  ssl_key: /var/lib/puppet/ssl/private_keys/foreman.example.com.pem
+  ssl_crt: /var/lib/puppet/ssl/certs/foreman.example.com.pem
