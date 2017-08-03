@@ -8,6 +8,9 @@
 include:
   - foreman.install
   - foreman.config
+  {% if foreman.smartproxy.enabled -%}
+  - foreman.smartproxy
+  {%- endif %}
   - foreman.service
 {% else %}
 'foreman-formula disabled':

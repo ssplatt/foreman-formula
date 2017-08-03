@@ -8,3 +8,11 @@ rest_cherrypy:
   host: 0.0.0.0
   ssl_key: /var/lib/puppet/ssl/private_keys/foreman.example.com.pem
   ssl_crt: /var/lib/puppet/ssl/certs/foreman.example.com.pem
+
+master_tops:
+  ext_nodes: /usr/bin/foreman-node
+
+ext_pillar:
+  - puppet: /usr/bin/foreman-node
+
+autosign_file: /etc/salt/autosign.conf

@@ -6,24 +6,33 @@ driver:
 
 provisioner:
   name: salt_solo
-  formula: foreman
+  is_file_root: true
+  salt_copy_filter:
+    - .kitchen
+    - .git
   state_top:
     base:
       "*":
+        - test.mockup
         - foreman
+  pillars:
+    top.sls:
+      base:
+        "*":
+          - foreman
 
 platforms:
   - name: debian-8
 
 suites:
   - name: default
+    provisioner:
+      pillars:
+        foreman.sls:
+          foreman:
+            enabled: true
 
   - name: custom
     provisioner:
       pillars-from-files:
         foreman.sls: pillar-custom.sls
-      pillars:
-        top.sls:
-          base:
-            "*":
-              - foreman

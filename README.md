@@ -1,10 +1,8 @@
 # foreman-formula
 
-Purpose of formula. Include a short description of what the formula does.
+Install and configure the Foreman with Salt.
 
-## Available states
-
-Describe in a readable form the states this formula supports with examples how to use those states. 
+ - https://theforeman.org/plugins/foreman_salt/7.0/index.html
 
 ## How to use test-kitchen on MacOSX
 
@@ -26,7 +24,19 @@ sudo gem install kitchen-vagrant
 sudo gem install kitchen-salt
 ```
 
+or with bundler:
+
+```
+gem install bundler
+bundle install
+```
+
 Run a converge on the default configuration:
 ```
-kitchen converge default
+kitchen converge
+```
+
+Run the tests:
+```
+kitchen test
 ```

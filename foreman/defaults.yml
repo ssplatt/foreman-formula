@@ -4,8 +4,10 @@
 
 foreman:
   enabled: False
-  repos_managed: false
-  mockup: false
+  pkg: foreman-installer
+  installer_options: []
+  smartproxy:
+    enabled: false
   service:
     name: foreman
     state: dead
