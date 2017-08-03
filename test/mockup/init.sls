@@ -14,13 +14,14 @@ mockup_foreman_repos_foreman_plugins:
     - file: /etc/apt/sources.list.d/foreman.list
     - key_url: http://deb.theforeman.org/pubkey.gpg
 
+{% if grains.init == "systemd" %}
 mockup_foreman_set_hostname:
   cmd.run:
     - name: hostnamectl set-hostname localhost.local
-    - onlyif:
-      - which hostnamectl
-    - unless:
-      - test $(hostname -f) = "localhost.local"
+    - onchanges:
+      - file: mockup_foreman_edit_hosts_file
+      - file: mockup_foreman_edit_hostname_file
+{% endif %}
 
 mockup_foreman_edit_hosts_file:
   file.managed:
